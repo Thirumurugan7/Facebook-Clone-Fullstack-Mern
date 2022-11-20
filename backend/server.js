@@ -24,6 +24,7 @@ const app = express();
 // app.use(cors(options)); //specify the origin --> from where the server can be accessed usually frontend
 
 app.use(cors());
+app.use(express.json());
 //routing manually
 // const useRoutes = require("./routes/user");
 
