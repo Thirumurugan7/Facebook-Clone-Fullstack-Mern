@@ -24,3 +24,4 @@ yarn-error.log*
 
 public
 node_modules
+.env
