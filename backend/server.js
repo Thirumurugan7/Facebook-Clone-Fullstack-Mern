@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const { readdirSync } = require("fs");
 const app = express();
 // let allowed = ["http://localhost:3000", "some otherlinks"];
 // function options(req, res) {
@@ -20,15 +21,14 @@ const app = express();
 // app.use(cors(options)); //specify the origin --> from where the server can be accessed usually frontend
 
 app.use(cors());
-app.get("/", (req, res) => {
-  res.send("welcome to home");
-});
-app.get("/friends", (req, res) => {
-  res.send("welcome to friends");
-});
-app.get("/books", (req, res) => {
-  res.send("welcome to harrypotter");
-});
+//routing manually
+// const useRoutes = require("./routes/user");
+
+// app.use("/user", useRoutes);
+
+// routing dynamically
+//mapping through the files in routes directory and requiring it
+readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
 
 app.listen(8000, () => {
   console.log("listening to port and running");
