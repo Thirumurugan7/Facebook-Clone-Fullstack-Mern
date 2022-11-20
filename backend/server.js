@@ -1,5 +1,8 @@
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 const { readdirSync } = require("fs");
 const app = express();
 // let allowed = ["http://localhost:3000", "some otherlinks"];
@@ -30,6 +33,17 @@ app.use(cors());
 //mapping through the files in routes directory and requiring it
 readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
 
+// database
+
+mongoose
+  .connect(process.env.DATABASE, {
+    useNewUrlParser: true,
+  })
+  .then(() => console.log("db connected successfully"))
+  .catch((err) => {
+    console.log("error connecting to mongodb", err);
+  });
+const port = process.env.PORT || 8000;
 app.listen(8000, () => {
-  console.log("listening to port and running");
+  console.log("listening to port and running in " + port);
 });
