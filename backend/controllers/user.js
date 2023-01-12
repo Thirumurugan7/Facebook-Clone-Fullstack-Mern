@@ -1,3 +1,5 @@
+const { validateEmail } = require("../helpers/validation");
+const { validate } = require("../models/User");
 const User = require("../models/User");
 
 exports.register = async (req, res) => {
@@ -13,6 +15,19 @@ exports.register = async (req, res) => {
       bDay,
       gender,
     } = req.body;
+
+    if (!validateEmail(email)) {
+      return res.status(400).json({
+        message: "Invalid email address",
+      });
+    }
+
+    const check = await User.findOne({ email });
+    if (check) {
+      return res.status(400).json({
+        message: "this email alread exists, try with a different email address",
+      });
+    }
 
     const user = await new User({
       first_name,
