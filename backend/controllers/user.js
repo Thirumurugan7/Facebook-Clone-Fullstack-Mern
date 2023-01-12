@@ -1,4 +1,4 @@
-const { validateEmail } = require("../helpers/validation");
+const { validateEmail, validateLength } = require("../helpers/validation");
 const { validate } = require("../models/User");
 const User = require("../models/User");
 
@@ -29,6 +29,27 @@ exports.register = async (req, res) => {
       });
     }
 
+    if (!validateLength(first_name, 3, 30)) {
+      return res.status(400).json({
+        message:
+          "first name should be at least 3 characters and not more than 30 characters",
+      });
+    }
+
+    if (!validateLength(last_name, 3, 30)) {
+      return res.status(400).json({
+        message:
+          "last name should be at least 3 characters and not more than 30 characters",
+      });
+    }
+
+    if (!validateLength(password, 6, 30)) {
+      return res.status(400).json({
+        message:
+          "password should be at least 6 characters and not more than 30 characters",
+      });
+    }
+    return;
     const user = await new User({
       first_name,
       last_name,
