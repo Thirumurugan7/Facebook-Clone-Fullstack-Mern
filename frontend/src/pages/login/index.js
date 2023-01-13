@@ -1,8 +1,15 @@
 import { Formik, Form } from "formik";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginInput from "../../components/inputs/loginInput";
 import "./style.css";
+const logInInfos = {
+  email: "",
+  password: "",
+};
 export default function Login() {
+  const [login, setLogin] = useState(logInInfos);
+  const { email, password } = login;
   return (
     <div className="login">
       <div className="login_wrapper">
@@ -16,8 +23,10 @@ export default function Login() {
           <div className="login_2">
             <div className="login_2_wrap">
               <Formik
+                enableReinitialize
                 initialValues={{
-                  email: "",
+                  email,
+                  password,
                 }}
               >
                 {(formik) => (
