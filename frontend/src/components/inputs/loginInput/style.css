@@ -22,3 +22,19 @@
 .input_error_border {
   border-color: #b94a48 !important;
 }
+
+.input_wrap i {
+  position: absolute;
+  right: 5px;
+  top: 35px;
+  transform: scale(0.8);
+}
+.input_error {
+  position: relative;
+  padding: 15px 10px;
+  background: #b94a48;
+  width: 100%;
+  color: #fff;
+  font-size: 13px;
+  border-radius: 5px;
+}
