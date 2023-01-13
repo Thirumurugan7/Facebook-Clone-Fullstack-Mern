@@ -53,10 +53,12 @@ exports.register = async (req, res) => {
           "password should be at least 6 characters and not more than 30 characters",
       });
     }
+
     const cryptedPassword = await bcrypt.hash(password, 1);
     let tempusername = first_name + last_name;
-    let newUsername = await validateUsername(tempusername);
-    return;
+    //console.log(tempusername);
+    const newUsername = await validateUsername(tempusername);
+    //console.log(newUsername);
     const user = await new User({
       first_name,
       last_name,
