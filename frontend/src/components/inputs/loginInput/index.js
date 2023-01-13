@@ -7,6 +7,9 @@ export default function LoginInput({ placeholder, bottom, ...props }) {
       {meta.touched && meta.error && !bottom && (
         <div className="input_error">
           {meta.touched && meta.error && <ErrorMessage name={field.name} />}
+          {meta.touched && meta.error && (
+            <div className="error_arrow_top"></div>
+          )}
         </div>
       )}
       <input
@@ -21,10 +24,15 @@ export default function LoginInput({ placeholder, bottom, ...props }) {
       {meta.touched && meta.error && bottom && (
         <div className="input_error">
           {meta.touched && meta.error && <ErrorMessage name={field.name} />}
+          {meta.touched && meta.error && (
+            <div className="error_arrow_top"></div>
+          )}
         </div>
       )}
 
-      {meta.touched && meta.error && <i className="error_icon"></i>}
+      {meta.touched && meta.error && (
+        <i className="error_icon" style={{ top: `${!bottom && "63%"}` }}></i>
+      )}
     </div>
   );
 }
