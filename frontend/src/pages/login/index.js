@@ -10,6 +10,11 @@ const logInInfos = {
 export default function Login() {
   const [login, setLogin] = useState(logInInfos);
   const { email, password } = login;
+  console.log(login);
+  const handleLoginChange = (e) => {
+    const { name, value } = e.target;
+    setLogin({ ...login, [name]: value });
+  };
   return (
     <div className="login">
       <div className="login_wrapper">
@@ -35,11 +40,13 @@ export default function Login() {
                       type="text"
                       name="email"
                       placeholder="Email address or Phone Number"
+                      onChange={handleLoginChange}
                     />
                     <LoginInput
                       type="password"
                       name="password"
                       placeholder="Password"
+                      onChange={handleLoginChange}
                     />
                     <button type="submit" className="blue_btn">
                       Log In
