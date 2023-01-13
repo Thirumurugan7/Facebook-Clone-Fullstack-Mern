@@ -1,5 +1,6 @@
 import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
+import LoginInput from "../../components/inputs/loginInput";
 import "./style.css";
 export default function Login() {
   return (
@@ -14,11 +15,23 @@ export default function Login() {
           </div>
           <div className="login_2">
             <div className="login_2_wrap">
-              <Formik>
+              <Formik
+                initialValues={{
+                  email: "",
+                }}
+              >
                 {(formik) => (
                   <Form>
-                    <input type="text" />
-                    <input type="text" />
+                    <LoginInput
+                      type="text"
+                      name="email"
+                      placeholder="Email address or Phone Number"
+                    />
+                    <LoginInput
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                    />
                     <button type="submit" className="blue_btn">
                       Log In
                     </button>
