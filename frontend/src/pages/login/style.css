@@ -95,8 +95,8 @@
   .login_2_wrap {
     width: 400px;
   }
-  .login_wrap {
-    width: 36px !important;
+  .input_wrap {
+    width: 360px !important;
   }
 }
 /* Media Queries */
