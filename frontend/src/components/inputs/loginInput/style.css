@@ -55,3 +55,10 @@
   position: absolute;
   top: -10px;
 }
+
+.input_error_desktop {
+  position: absolute;
+  width: 300px;
+  left: -19.5rem;
+  top: -3px;
+}
