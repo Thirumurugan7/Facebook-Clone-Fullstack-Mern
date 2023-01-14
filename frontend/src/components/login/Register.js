@@ -29,13 +29,51 @@ export default function Register() {
         <Formik>
           {(formik) => {
             <Form className="register_form">
-              <div className="regi_line">
+              <div className="reg_line">
                 <RegisterInput
                   type="text"
                   placeholder="First Name"
                   name="first_name"
                   onChange={handleRegisterChange}
                 />
+                <RegisterInput
+                  type="text"
+                  placeholder="Last Name"
+                  name="last_name"
+                  onChange={handleRegisterChange}
+                />
+              </div>
+              <div className="reg_line">
+                <RegisterInput
+                  type="text"
+                  placeholder="Mobile Number or E-Mail address"
+                  name="email"
+                  onChange={handleRegisterChange}
+                />
+              </div>
+              <div className="reg_line">
+                <RegisterInput
+                  type="password"
+                  placeholder="New Password"
+                  name="password"
+                  onChange={handleRegisterChange}
+                />
+              </div>
+              <div className="reg_col">
+                <div className="reg_line_header">
+                  Date ofbirth <i className="info_icon"></i>
+                </div>
+                <div className="reg_grid">
+                  <select name="bDay" id="">
+                    <option>15</option>
+                  </select>
+                  <select name="bMonth" id="">
+                    <option>15</option>
+                  </select>
+                  <select name="bYear" id="">
+                    <option>15</option>
+                  </select>
+                </div>
               </div>
             </Form>;
           }}
