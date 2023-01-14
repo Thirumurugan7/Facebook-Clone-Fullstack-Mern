@@ -75,6 +75,43 @@ export default function Register() {
                   </select>
                 </div>
               </div>
+              <div className="reg_col">
+                <div className="reg_line_header">
+                  Gender <i className="info_icon"></i>
+                </div>
+                <div className="reg_grid">
+                  <label htmlFor="male">
+                    Male
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="male"
+                      value="male"
+                      onChange={handelRegisterChange}
+                    />
+                  </label>
+                  <label htmlFor="male">
+                    Female
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="female"
+                      value="female"
+                      onChange={handelRegisterChange}
+                    />
+                  </label>
+                  <label htmlFor="male">
+                    Custom
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="custom"
+                      value="custom"
+                      onChange={handelRegisterChange}
+                    />
+                  </label>
+                </div>
+              </div>
             </Form>;
           }}
         </Formik>
