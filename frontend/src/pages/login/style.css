@@ -161,5 +161,9 @@
   .input_wrap {
     width: 360px !important;
   }
+
+  .login_footer_wrap {
+    max-width: 900px;
+  }
 }
 /* Media Queries */
