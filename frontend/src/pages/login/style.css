@@ -104,6 +104,17 @@
   cursor: pointer;
 }
 
+.register_header span:first-of-type {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.register_header span:last-of-type {
+  font-size: 15px;
+
+  color: var(--color-secondary);
+}
+
 /* ---------------------------------Register-------------------------------- */
 
 /* ---------------Footer------------------------------------ */
