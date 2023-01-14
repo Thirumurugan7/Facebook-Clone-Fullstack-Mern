@@ -1,3 +1,5 @@
+/* ---------Login------------------ */
+
 .login_wrapper {
   background: var(--bg-secondary);
 }
@@ -68,6 +70,41 @@
 .sign_extra {
   font-size: 15px;
 }
+/* ---------Login------------------ */
+
+/* ---------------------------------Register-------------------------------- */
+
+.register {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-primary);
+  box-shadow: 0 1px 2px var(--shadow-1);
+  border-radius: 10px;
+  padding: 15px;
+  padding-bottom: 1rem;
+  width: 350px;
+  height: fit-content;
+  color: var(--color-primary);
+}
+
+.register_header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--bg-third);
+}
+
+.register_header i {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+/* ---------------------------------Register-------------------------------- */
 
 /* ---------------Footer------------------------------------ */
 .login_footer {
