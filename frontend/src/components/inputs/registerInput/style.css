@@ -13,3 +13,9 @@
 .register_input_wrap .error_arrow_bottom {
   transform: translateY(1px);
 }
+
+@media (min-width: 539px) {
+  .register_input_wrap .input_error {
+    max-width: 100%;
+  }
+}
