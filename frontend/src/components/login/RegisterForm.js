@@ -2,6 +2,7 @@ import { Form, Formik } from "formik";
 import { useState } from "react";
 import RegisterInput from "../inputs/registerInput";
 import * as Yup from "yup";
+import DateofBirthSelect from "./DateofBirthSelect";
 const userInfos = {
   first_name: "",
   last_name: "",
@@ -143,6 +144,16 @@ export default function RegisterForm() {
                 <div className="reg_line_header">
                   Date of birth <i className="info_icon"></i>
                 </div>
+                <DateofBirthSelect
+                  bDay={bDay}
+                  bMonth={bMonth}
+                  bYear={bYear}
+                  days={days}
+                  months={months}
+                  years={years}
+                  handleRegisterChange={handleRegisterChange}
+                  dateError={dateError}
+                />
               </div>
               <div className="reg_col">
                 <div className="reg_line_header">
