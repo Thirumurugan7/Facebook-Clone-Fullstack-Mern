@@ -50,7 +50,20 @@ export default function RegisterForm() {
       .min(4, "First name must be atleast 2 characters")
       .max(20, "FIrst name must be maximum of 20 characters")
       .matches(/^[aA-zZ]+$/, "Numbers and special characteres are not allowed"),
+    last_name: Yup.string()
+      .required("Last Name is required")
+      .min(4, "Last name must be atleast 2 characters")
+      .max(20, "Last name must be maximum of 20 characters")
+      .matches(/^[aA-zZ]+$/, "Numbers and special characteres are not allowed"),
+    password: Yup.string()
+      .required("Password is required")
+      .min(6, "Password must be between 6 to 20 characters")
+      .max(20, "Password must be atleast 2 characters"),
+    email: Yup.string()
+      .required("Email is required")
+      .email("Enter a valid email address"),
   });
+
   return (
     <div className="blur">
       <div className="register">
