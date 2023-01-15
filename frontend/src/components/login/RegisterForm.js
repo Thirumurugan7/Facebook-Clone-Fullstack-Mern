@@ -34,6 +34,12 @@ export default function RegisterForm() {
   const months = Array.from(new Array(12), (val, i) => i + 1);
   console.log(years);
   console.log(months);
+
+  const getDays = () => {
+    return new Date(bYear, bMonth, 0).getDate();
+  };
+  const days = Array.from(new Array(getDays()), (val, index) => 1 + index);
+  console.log(days);
   return (
     <div className="blur">
       <div className="register">
