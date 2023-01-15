@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 export default function GenderSelect({ handleRegisterChange, genderError }) {
   const view1 = useMediaQuery({
     query: "(min-width:539px)",
