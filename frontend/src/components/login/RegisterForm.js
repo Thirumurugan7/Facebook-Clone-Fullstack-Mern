@@ -85,6 +85,16 @@ export default function RegisterForm() {
             gender,
           }}
           validationSchema={registerValidation}
+          onSubmit={() => {
+            let current_date = new Date();
+            let picked_date = new Date(bYear, bMonth - 1, bDay);
+            let atleast14 = new Date(1970 + 14, 0, 1);
+            let noMoreThan80 = new Date(1970 + 80, 0, 1);
+
+            if (current_date - picked_date < atleast14) {
+              console.log("underage!");
+            }
+          }}
         >
           {(formik) => (
             <Form className="register_form">
