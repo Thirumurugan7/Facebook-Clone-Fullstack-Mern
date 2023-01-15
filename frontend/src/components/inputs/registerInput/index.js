@@ -7,7 +7,7 @@ export default function RegisterInput({ placeholder, bottom, ...props }) {
     query: "(min-width: 850px)",
   });
   return (
-    <div className="input_wrap">
+    <div className="input_wrap register_input_wrap">
       <input
         className={meta.touched && meta.error ? "input_error_border" : ""}
         type={field.type}
@@ -40,6 +40,7 @@ export default function RegisterInput({ placeholder, bottom, ...props }) {
           style={{ top: `${!bottom && !desktopView ? "63%" : "15px"}` }}
         ></i>
       )}
+      {meta.touched && meta.error && <i className="error_icon"></i>}
     </div>
   );
 }
