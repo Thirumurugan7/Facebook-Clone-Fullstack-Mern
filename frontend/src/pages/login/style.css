@@ -224,6 +224,11 @@
   top: 70px;
 }
 
+.input_error_select_large {
+  left: -97%;
+  top: 15px !important;
+}
+
 /* ------d0b and gender error------- */
 
 /*----Media queries--------------*/
