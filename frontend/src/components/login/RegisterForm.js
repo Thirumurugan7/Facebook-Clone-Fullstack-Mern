@@ -3,6 +3,7 @@ import { useState } from "react";
 import RegisterInput from "../inputs/registerInput";
 import * as Yup from "yup";
 import DateofBirthSelect from "./DateofBirthSelect";
+import GenderSelect from "./GenderSelect";
 const userInfos = {
   first_name: "",
   last_name: "",
@@ -159,6 +160,10 @@ export default function RegisterForm() {
                 <div className="reg_line_header">
                   Gender <i className="info_icon"></i>
                 </div>
+                <GenderSelect
+                  handleRegisterChange={handleRegisterChange}
+                  genderError={genderError}
+                />
               </div>
               <div className="reg_infos">
                 By clicking Sign Up, you agree to our{" "}

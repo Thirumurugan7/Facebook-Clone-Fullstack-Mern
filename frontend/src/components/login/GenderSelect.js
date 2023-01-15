@@ -1,4 +1,4 @@
-export default function GenderSelect() {
+export default function GenderSelect({ handleRegisterChange, genderError }) {
   return (
     <div className="reg_grid">
       <label htmlFor="male">
