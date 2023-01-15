@@ -2,9 +2,8 @@ import { Form, Formik } from "formik";
 import { useState } from "react";
 import RegisterInput from "../inputs/registerInput";
 import * as Yup from "yup";
-import DateofBirthSelect from "./DateofBirthSelect";
+import DateOfBirthSelect from "./DateofBirthSelect";
 import GenderSelect from "./GenderSelect";
-
 export default function RegisterForm() {
   const userInfos = {
     first_name: "",
@@ -17,7 +16,6 @@ export default function RegisterForm() {
     gender: "",
   };
   const [user, setUser] = useState(userInfos);
-
   const {
     first_name,
     last_name,
@@ -28,46 +26,49 @@ export default function RegisterForm() {
     bDay,
     gender,
   } = user;
-
   const yearTemp = new Date().getFullYear();
-
   const handleRegisterChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
-  console.log(user);
-  const years = Array.from(new Array(109), (val, index) => yearTemp - index);
-  const months = Array.from(new Array(12), (val, i) => i + 1);
-  console.log(years);
-  console.log(months);
-
+  const years = Array.from(new Array(108), (val, index) => yearTemp - index);
+  const months = Array.from(new Array(12), (val, index) => 1 + index);
   const getDays = () => {
     return new Date(bYear, bMonth, 0).getDate();
   };
   const days = Array.from(new Array(getDays()), (val, index) => 1 + index);
-  console.log(days);
-
   const registerValidation = Yup.object({
     first_name: Yup.string()
-      .required("First Name is required")
-      .min(4, "First name must be atleast 2 characters")
-      .max(20, "FIrst name must be maximum of 20 characters")
-      .matches(/^[aA-zZ]+$/, "Numbers and special characteres are not allowed"),
+      .required("What's your First name ?")
+      .min(2, "Fisrt name must be between 2 and 16 characters.")
+      .max(16, "Fisrt name must be between 2 and 16 characters.")
+      .matches(/^[aA-zZ]+$/, "Numbers and special characters are not allowed."),
     last_name: Yup.string()
-      .required("Last Name is required")
-      .min(4, "Last name must be atleast 2 characters")
-      .max(20, "Last name must be maximum of 20 characters")
-      .matches(/^[aA-zZ]+$/, "Numbers and special characteres are not allowed"),
-    password: Yup.string()
-      .required("Password is required")
-      .min(6, "Password must be between 6 to 20 characters")
-      .max(20, "Password must be atleast 2 characters"),
+      .required("What's your Last name ?")
+      .min(2, "Last name must be between 2 and 16 characters.")
+      .max(16, "Last name must be between 2 and 16 characters.")
+      .matches(/^[aA-zZ]+$/, "Numbers and special characters are not allowed."),
     email: Yup.string()
-      .required("Email is required")
-      .email("Enter a valid email address"),
+      .required(
+        "You'll need this when you log in and if you ever need to reset your password."
+      )
+      .email("Enter a valid email address."),
+    password: Yup.string()
+      .required(
+        "Enter a combination of at least six numbers,letters and punctuation marks(such as ! and &)."
+      )
+      .min(6, "Password must be atleast 6 characters.")
+      .max(36, "Password can't be more than 36 characters"),
+    gender: Yup.string().required("Gender must be entered"),
   });
   const [dateError, setDateError] = useState("");
   const [genderError, setGenderError] = useState("");
+
+  const [error, setError] = useState("error");
+  const [success, setSuccess] = useState("successmsg");
+  const [loading, setLoading] = useState("");
+
+  const registerSubmit = async () => {};
   return (
     <div className="blur">
       <div className="register">
@@ -93,16 +94,15 @@ export default function RegisterForm() {
             let current_date = new Date();
             let picked_date = new Date(bYear, bMonth - 1, bDay);
             let atleast14 = new Date(1970 + 14, 0, 1);
-            let noMoreThan80 = new Date(1970 + 80, 0, 1);
-            console.log(current_date, "currendate");
-            console.log(picked_date, "picked date");
-            console.log(atleast14, "atleast 14");
+            let noMoreThan70 = new Date(1970 + 70, 0, 1);
             if (current_date - picked_date < atleast14) {
               setDateError(
-                "It looks like you have entered a wrong date of birth"
+                "it looks like you(ve enetered the wrong info.Please make sure that you use your real date of birth."
               );
-            } else if (current_date - picked_date > noMoreThan80) {
-              setDateError("It looks like you are too old to use Facebook");
+            } else if (current_date - picked_date > noMoreThan70) {
+              setDateError(
+                "it looks like you(ve enetered the wrong info.Please make sure that you use your real date of birth."
+              );
             } else if (gender === "") {
               setDateError("");
               setGenderError(
@@ -111,6 +111,7 @@ export default function RegisterForm() {
             } else {
               setDateError("");
               setGenderError("");
+              registerSubmit();
             }
           }}
         >
@@ -150,7 +151,7 @@ export default function RegisterForm() {
                 <div className="reg_line_header">
                   Date of birth <i className="info_icon"></i>
                 </div>
-                <DateofBirthSelect
+                <DateOfBirthSelect
                   bDay={bDay}
                   bMonth={bMonth}
                   bYear={bYear}
@@ -165,6 +166,7 @@ export default function RegisterForm() {
                 <div className="reg_line_header">
                   Gender <i className="info_icon"></i>
                 </div>
+
                 <GenderSelect
                   handleRegisterChange={handleRegisterChange}
                   genderError={genderError}
@@ -179,6 +181,8 @@ export default function RegisterForm() {
               <div className="reg_btn_wrapper">
                 <button className="blue_btn open_signup">Sign Up</button>
               </div>
+              {error && <div className="error_text">{error}</div>}
+              {success && <div className="success_text">{success}</div>}
             </Form>
           )}
         </Formik>
