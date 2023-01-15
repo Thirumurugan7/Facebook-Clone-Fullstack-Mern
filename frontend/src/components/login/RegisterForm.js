@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import DateOfBirthSelect from "./DateOfBirthSelect";
 import GenderSelect from "./GenderSelect";
 import DotLoader from "react-spinners/DotLoader";
+import axios from "axios";
 export default function RegisterForm() {
   const userInfos = {
     first_name: "",
@@ -66,7 +67,26 @@ export default function RegisterForm() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(true);
-  const registerSubmit = async () => {};
+  const registerSubmit = async () => {
+    try {
+      const { data } = await axios.post(`${process.env.BACKEND_URL}/register`, {
+        first_name,
+        last_name,
+        email,
+        password,
+        bYear,
+        bMonth,
+        bDay,
+        gender,
+      });
+      setError("");
+      setSuccess(data.message);
+    } catch (error) {
+      setLoading(false);
+      setSuccess("");
+      setError(error.response.data.message);
+    }
+  };
   return (
     <div className="blur">
       <div className="register">
