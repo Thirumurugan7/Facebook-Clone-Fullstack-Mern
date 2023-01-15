@@ -1,6 +1,19 @@
 export default function GenderSelect({ handleRegisterChange, genderError }) {
+  const view1 = useMediaQuery({
+    query: "(min-width:539px)",
+  });
+  const view2 = useMediaQuery({
+    query: "(min-width: 850px)",
+  });
+
+  const view3 = useMediaQuery({
+    query: "(min-width:1170px)",
+  });
   return (
-    <div className="reg_grid">
+    <div
+      className="reg_grid"
+      style={{ marginBottom: `${genderError && !view3 && "80px"}` }}
+    >
       <label htmlFor="male">
         Male
         <input
@@ -31,7 +44,12 @@ export default function GenderSelect({ handleRegisterChange, genderError }) {
           onChange={handleRegisterChange}
         />
       </label>
-      {genderError && <div className="input_error">{genderError}</div>}
+      {genderError && (
+        <div className="input_error">
+          <div className="error_arrow_button"></div>
+          {genderError}
+        </div>
+      )}
     </div>
   );
 }

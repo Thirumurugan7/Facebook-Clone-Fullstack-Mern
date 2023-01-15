@@ -102,10 +102,14 @@ export default function RegisterForm() {
               );
             } else if (current_date - picked_date > noMoreThan80) {
               setDateError("It looks like you are too old to use Facebook");
-            } else if (gender == "") {
+            } else if (gender === "") {
+              setDateError("");
               setGenderError(
                 "Please choose a gender. You can change who can see this later."
               );
+            } else {
+              setDateError("");
+              setGenderError("");
             }
           }}
         >

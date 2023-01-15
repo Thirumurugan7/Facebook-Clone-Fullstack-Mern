@@ -216,6 +216,16 @@
 }
 /*----Footer------*/
 
+/* ------d0b and gender error------- */
+
+.reg_grid .input_error {
+  width: 300px;
+  position: absolute;
+  top: 70px;
+}
+
+/* ------d0b and gender error------- */
+
 /*----Media queries--------------*/
 @media (min-width: 539px) {
   .login_footer_wrap {
