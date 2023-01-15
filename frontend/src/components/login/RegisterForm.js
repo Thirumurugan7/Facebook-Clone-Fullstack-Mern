@@ -4,6 +4,7 @@ import RegisterInput from "../inputs/registerInput";
 import * as Yup from "yup";
 import DateOfBirthSelect from "./DateOfBirthSelect";
 import GenderSelect from "./GenderSelect";
+import DotLoader from "react-spinners/DotLoader";
 export default function RegisterForm() {
   const userInfos = {
     first_name: "",
@@ -64,7 +65,7 @@ export default function RegisterForm() {
   const [genderError, setGenderError] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(true);
   const registerSubmit = async () => {};
   return (
     <div className="blur">
@@ -178,8 +179,9 @@ export default function RegisterForm() {
               <div className="reg_btn_wrapper">
                 <button className="blue_btn open_signup">Sign Up</button>
               </div>
+              <DotLoader color="#1876f2" loading={loading} size={30} />
               {error && <div className="error_text">{error}</div>}
-              {success && <div className="error_text">{success}</div>}
+              {success && <div className="success_text">{success}</div>}
             </Form>
           )}
         </Formik>
