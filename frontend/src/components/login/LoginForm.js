@@ -7,7 +7,7 @@ const loginInfos = {
   email: "",
   password: "",
 };
-export default function LoginForm() {
+export default function LoginForm({ setVisible }) {
   const [login, setLogin] = useState(loginInfos);
   const { email, password } = login;
   const handleLoginChange = (e) => {
@@ -64,7 +64,14 @@ export default function LoginForm() {
             Forgotten password?
           </Link>
           <div className="sign_splitter"></div>
-          <button className="blue_btn open_signup">Create Account</button>
+          <button
+            className="blue_btn open_signup"
+            onClick={() => {
+              setVisible(true);
+            }}
+          >
+            Create Account
+          </button>
         </div>
         <Link to="/" className="sign_extra">
           <b>Create a Page</b> for a celebrity, brand or business.
