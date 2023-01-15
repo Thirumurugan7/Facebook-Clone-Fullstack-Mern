@@ -63,7 +63,8 @@ export default function RegisterForm() {
       .required("Email is required")
       .email("Enter a valid email address"),
   });
-
+  const [dateError, setDateError] = useState("");
+  const [genderError, setGenderError] = useState("");
   return (
     <div className="blur">
       <div className="register">
@@ -90,9 +91,19 @@ export default function RegisterForm() {
             let picked_date = new Date(bYear, bMonth - 1, bDay);
             let atleast14 = new Date(1970 + 14, 0, 1);
             let noMoreThan80 = new Date(1970 + 80, 0, 1);
-
+            console.log(current_date, "currendate");
+            console.log(picked_date, "picked date");
+            console.log(atleast14, "atleast 14");
             if (current_date - picked_date < atleast14) {
-              console.log("underage!");
+              setDateError(
+                "It looks like you have entered a wrong date of birth"
+              );
+            } else if (current_date - picked_date > noMoreThan80) {
+              setDateError("It looks like you are too old to use Facebook");
+            } else if (gender == "") {
+              setGenderError(
+                "Please choose a gender. You can change who can see this later."
+              );
             }
           }}
         >
@@ -166,6 +177,7 @@ export default function RegisterForm() {
                       </option>
                     ))}
                   </select>
+                  {dateError && <div className="input_error">{dateError}</div>}
                 </div>
               </div>
               <div className="reg_col">
@@ -212,7 +224,9 @@ export default function RegisterForm() {
                 notifications from us and can opt out at any time.
               </div>
               <div className="reg_btn_wrapper">
-                <button className="blue_btn open_signup">Sign Up</button>
+                <button className="blue_btn open_signup" type="button">
+                  Sign Up
+                </button>
               </div>
             </Form>
           )}
