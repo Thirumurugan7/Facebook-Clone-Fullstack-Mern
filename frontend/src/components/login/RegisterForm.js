@@ -25,12 +25,14 @@ export default function RegisterForm() {
     gender,
   } = user;
 
+  const yearTemp = new Date().getFullYear();
+
   const handleRegisterChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
   console.log(user);
-  const years = Array.from(new Array(109), (val, index) => bYear - index);
+  const years = Array.from(new Array(109), (val, index) => yearTemp - index);
   const months = Array.from(new Array(12), (val, i) => i + 1);
   console.log(years);
   console.log(months);
