@@ -4,16 +4,14 @@ import { useMediaQuery } from "react-responsive";
 export default function RegisterInput({ placeholder, bottom, ...props }) {
   const [field, meta] = useField(props);
   const view1 = useMediaQuery({
-    query: "(min-width:539px)",
+    query: "(min-width: 539px)",
   });
   const view2 = useMediaQuery({
     query: "(min-width: 850px)",
   });
-
   const view3 = useMediaQuery({
-    query: "(min-width:1170px)",
+    query: "(min-width: 1170px)",
   });
-
   const test1 = view3 && field.name === "first_name";
   const test2 = view3 && field.name === "last_name";
   return (
@@ -22,7 +20,7 @@ export default function RegisterInput({ placeholder, bottom, ...props }) {
         className={meta.touched && meta.error ? "input_error_border" : ""}
         style={{
           width: `${
-            (view1 && field.name === "first_name") || field.name === "last_name"
+            view1 && (field.name === "first_name" || field.name === "last_name")
               ? "100%"
               : view1 && (field.name === "email" || field.name === "password")
               ? "370px"

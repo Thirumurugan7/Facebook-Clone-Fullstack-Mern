@@ -1,5 +1,6 @@
 import { useMediaQuery } from "react-responsive";
-export default function DateofBirthSelect({
+
+export default function DateOfBirthSelect({
   bDay,
   bMonth,
   bYear,
@@ -10,14 +11,13 @@ export default function DateofBirthSelect({
   dateError,
 }) {
   const view1 = useMediaQuery({
-    query: "(min-width:539px)",
+    query: "(min-width: 539px)",
   });
   const view2 = useMediaQuery({
     query: "(min-width: 850px)",
   });
-
   const view3 = useMediaQuery({
-    query: "(min-width:1170px)",
+    query: "(min-width: 1170px)",
   });
   return (
     <div

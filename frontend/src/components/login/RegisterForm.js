@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import { useState } from "react";
 import RegisterInput from "../inputs/registerInput";
 import * as Yup from "yup";
-import DateOfBirthSelect from "./DateofBirthSelect";
+import DateOfBirthSelect from "./DateOfBirthSelect";
 import GenderSelect from "./GenderSelect";
 export default function RegisterForm() {
   const userInfos = {
@@ -59,15 +59,12 @@ export default function RegisterForm() {
       )
       .min(6, "Password must be atleast 6 characters.")
       .max(36, "Password can't be more than 36 characters"),
-    gender: Yup.string().required("Gender must be entered"),
   });
   const [dateError, setDateError] = useState("");
   const [genderError, setGenderError] = useState("");
-
-  const [error, setError] = useState("error");
-  const [success, setSuccess] = useState("successmsg");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState("");
-
   const registerSubmit = async () => {};
   return (
     <div className="blur">
@@ -182,7 +179,7 @@ export default function RegisterForm() {
                 <button className="blue_btn open_signup">Sign Up</button>
               </div>
               {error && <div className="error_text">{error}</div>}
-              {success && <div className="success_text">{success}</div>}
+              {success && <div className="error_text">{success}</div>}
             </Form>
           )}
         </Formik>
