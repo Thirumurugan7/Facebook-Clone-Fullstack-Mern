@@ -3,11 +3,18 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import LoginInput from "../../components/inputs/loginInput";
 import { useState } from "react";
+import DotLoader from "react-spinners/DotLoader";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const loginInfos = {
   email: "",
   password: "",
 };
 export default function LoginForm({ setVisible }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [login, setLogin] = useState(loginInfos);
   const { email, password } = login;
   const handleLoginChange = (e) => {
@@ -21,6 +28,23 @@ export default function LoginForm({ setVisible }) {
       .max(100),
     password: Yup.string().required("Password is required"),
   });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const loginSubmit = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.post(`http://localhost:8000/register`, {
+        email,
+        password,
+      });
+      dispatch({ type: "LOGIN", payload: data });
+      Cookies.set("user", JSON.stringify(data));
+      navigate("/");
+    } catch (error) {
+      setLoading(false);
+      setError(error.response.data.message);
+    }
+  };
   return (
     <div className="login_wrap">
       <div className="login_1">
@@ -54,7 +78,13 @@ export default function LoginForm({ setVisible }) {
                   onChange={handleLoginChange}
                   bottom
                 />
-                <button type="submit" className="blue_btn">
+                <button
+                  type="submit"
+                  className="blue_btn"
+                  onClick={() => {
+                    loginSubmit();
+                  }}
+                >
                   Log In
                 </button>
               </Form>
@@ -63,6 +93,7 @@ export default function LoginForm({ setVisible }) {
           <Link to="/forgot" className="forgot_password">
             Forgotten password?
           </Link>
+          {error && <div className="error_text">{error}</div>}
           <div className="sign_splitter"></div>
           <button
             className="blue_btn open_signup"

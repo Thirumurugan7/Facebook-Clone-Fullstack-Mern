@@ -7,3 +7,7 @@ npm start
 step 4: in backend terminal
 
 npm run server
+
+Completed Login and Register Pages
+
+image.png
