@@ -1,6 +1,7 @@
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import RegisterInput from "../inputs/registerInput";
+import * as Yup from "yup";
 const userInfos = {
   first_name: "",
   last_name: "",
@@ -42,6 +43,14 @@ export default function RegisterForm() {
   };
   const days = Array.from(new Array(getDays()), (val, index) => 1 + index);
   console.log(days);
+
+  const registerValidation = Yup.object({
+    first_name: Yup.string()
+      .required("First Name is required")
+      .min(4, "First name must be atleast 2 characters")
+      .max(20, "FIrst name must be maximum of 20 characters")
+      .matches(/^[aA-zZ]+$/, "Numbers and special characteres are not allowed"),
+  });
   return (
     <div className="blur">
       <div className="register">
@@ -50,7 +59,20 @@ export default function RegisterForm() {
           <span>Sign Up</span>
           <span>it's quick and easy</span>
         </div>
-        <Formik>
+        <Formik
+          enableReinitialize
+          initialValues={{
+            first_name,
+            last_name,
+            email,
+            password,
+            bYear,
+            bMonth,
+            bDay,
+            gender,
+          }}
+          validationSchema={registerValidation}
+        >
           {(formik) => (
             <Form className="register_form">
               <div className="reg_line">
