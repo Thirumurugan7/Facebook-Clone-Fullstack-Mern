@@ -45,6 +45,6 @@ mongoose
     console.log("error connecting to mongodb", err);
   });
 const port = process.env.PORT || 8000;
-app.listen(8000, () => {
+app.listen(port, () => {
   console.log("listening to port and running in " + port);
 });

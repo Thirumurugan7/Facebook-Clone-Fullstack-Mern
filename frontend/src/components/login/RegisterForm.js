@@ -6,6 +6,7 @@ import DateOfBirthSelect from "./DateOfBirthSelect";
 import GenderSelect from "./GenderSelect";
 import DotLoader from "react-spinners/DotLoader";
 import axios from "axios";
+import env from "react-dotenv";
 export default function RegisterForm() {
   const userInfos = {
     first_name: "",
@@ -67,9 +68,12 @@ export default function RegisterForm() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(true);
+  const url = `${process.env.BACKEND_URL}/register`;
+  console.log(url);
+  console.log(process.env.hi);
   const registerSubmit = async () => {
     try {
-      const { data } = await axios.post(`${process.env.BACKEND_URL}/register`, {
+      const { data } = await axios.post(`http://localhost:8000/register`, {
         first_name,
         last_name,
         email,
