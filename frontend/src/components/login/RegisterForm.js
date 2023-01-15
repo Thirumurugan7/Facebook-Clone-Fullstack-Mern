@@ -4,17 +4,18 @@ import RegisterInput from "../inputs/registerInput";
 import * as Yup from "yup";
 import DateofBirthSelect from "./DateofBirthSelect";
 import GenderSelect from "./GenderSelect";
-const userInfos = {
-  first_name: "",
-  last_name: "",
-  email: "",
-  password: "",
-  bYear: new Date().getFullYear(),
-  bMonth: new Date().getMonth() + 1,
-  bDay: new Date().getDate(),
-  gender: "",
-};
+
 export default function RegisterForm() {
+  const userInfos = {
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    bYear: new Date().getFullYear(),
+    bMonth: new Date().getMonth() + 1,
+    bDay: new Date().getDate(),
+    gender: "",
+  };
   const [user, setUser] = useState(userInfos);
 
   const {
@@ -176,9 +177,7 @@ export default function RegisterForm() {
                 notifications from us and can opt out at any time.
               </div>
               <div className="reg_btn_wrapper">
-                <button className="blue_btn open_signup" type="button">
-                  Sign Up
-                </button>
+                <button className="blue_btn open_signup">Sign Up</button>
               </div>
             </Form>
           )}

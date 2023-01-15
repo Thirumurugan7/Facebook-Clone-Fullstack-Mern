@@ -216,20 +216,17 @@
 }
 /*----Footer------*/
 
-/* ------d0b and gender error------- */
-
+/*----dob and gender errors-----*/
 .reg_grid .input_error {
   width: 300px;
   position: absolute;
   top: 70px;
 }
-
 .input_error_select_large {
   left: -97%;
   top: 15px !important;
 }
-
-/* ------d0b and gender error------- */
+/*----dob and gender errors-----*/
 
 /*----Media queries--------------*/
 @media (min-width: 539px) {
