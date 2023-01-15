@@ -10,4 +10,4 @@ npm run server
 
 Completed Login and Register Pages
 
-image.png
+![image](https://user-images.githubusercontent.com/67679146/212557506-912793ef-ef0f-4d25-8872-bee232c3924c.png)
