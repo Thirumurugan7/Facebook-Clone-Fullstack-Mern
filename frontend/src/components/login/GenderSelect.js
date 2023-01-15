@@ -12,7 +12,7 @@ export default function GenderSelect({ handleRegisterChange, genderError }) {
   return (
     <div
       className="reg_grid"
-      style={{ marginBottom: `${genderError && !view3 && "80px"}` }}
+      style={{ marginBottom: `${genderError && !view3 && "70px"}` }}
     >
       <label htmlFor="male">
         Male
