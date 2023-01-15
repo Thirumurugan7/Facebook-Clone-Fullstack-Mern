@@ -31,7 +31,9 @@ export default function RegisterForm() {
   };
   console.log(user);
   const years = Array.from(new Array(109), (val, index) => bYear - index);
+  const months = Array.from(new Array(12), (val, i) => i + 1);
   console.log(years);
+  console.log(months);
   return (
     <div className="blur">
       <div className="register">
@@ -81,11 +83,19 @@ export default function RegisterForm() {
                   <select name="bDay">
                     <option>15</option>
                   </select>
-                  <select name="bMonth">
-                    <option>15</option>
+                  <select name="bMonth" value={bMonth}>
+                    {months.map((month, i) => (
+                      <option value={month} key={i}>
+                        {month}
+                      </option>
+                    ))}
                   </select>
-                  <select name="bYear">
-                    <option>15</option>
+                  <select name="bYear" value={bYear}>
+                    {years.map((year, i) => (
+                      <option value={year} key={i}>
+                        {year}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>
