@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { useState } from "react";
+import { useDebugValue, useState } from "react";
 import RegisterInput from "../inputs/registerInput";
 import * as Yup from "yup";
 import DateOfBirthSelect from "./DateOfBirthSelect";
@@ -7,7 +7,12 @@ import GenderSelect from "./GenderSelect";
 import DotLoader from "react-spinners/DotLoader";
 import axios from "axios";
 import env from "react-dotenv";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 export default function RegisterForm() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const userInfos = {
     first_name: "",
     last_name: "",
@@ -68,6 +73,7 @@ export default function RegisterForm() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(true);
+
   const url = `${process.env.BACKEND_URL}/register`;
   console.log(url);
   console.log(process.env.hi);
@@ -85,6 +91,12 @@ export default function RegisterForm() {
       });
       setError("");
       setSuccess(data.message);
+      const { message, ...rest } = data;
+      setTimeout(() => {
+        dispatch({ type: "LOGIN", payload: rest });
+        Cookies.set("user", JSON.stringify(rest));
+        navigate("/");
+      }, 2000);
     } catch (error) {
       setLoading(false);
       setSuccess("");
