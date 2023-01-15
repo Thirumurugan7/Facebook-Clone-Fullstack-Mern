@@ -6,17 +6,32 @@ const userInfos = {
   last_name: "",
   email: "",
   password: "",
-  bYear: "",
-  bMonth: "",
-  bDay: "",
+  bYear: new Date().getFullYear(),
+  bMonth: new Date().getMonth() + 1,
+  bDay: new Date().getDate(),
   gender: "",
 };
 export default function RegisterForm() {
   const [user, setUser] = useState(userInfos);
+
+  const {
+    first_name,
+    last_name,
+    email,
+    password,
+    bYear,
+    bMonth,
+    bDay,
+    gender,
+  } = user;
+
   const handleRegisterChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
+  console.log(user);
+  const years = Array.from(new Array(109), (val, index) => bYear - index);
+  console.log(years);
   return (
     <div className="blur">
       <div className="register">
