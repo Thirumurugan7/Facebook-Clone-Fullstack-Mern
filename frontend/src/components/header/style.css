@@ -44,3 +44,26 @@ header {
   font-size: 15px;
   font-family: inherit;
 }
+
+.search_input::placeholder {
+  transform: translateY(-1px);
+}
+
+.header_middle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transform: translateX(3px);
+}
+
+.middle_icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  transform: translateX(-2px);
+}
