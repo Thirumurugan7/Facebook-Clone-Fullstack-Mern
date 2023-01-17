@@ -65,3 +65,12 @@ a {
   background: rgba(255, 255, 255, 0.768);
   z-index: 99;
 }
+
+/* hovers */
+
+.hover1:hover {
+  background: var(--bg-secondary);
+}
+.hover2:hover {
+  background: var(--bg-third);
+}
