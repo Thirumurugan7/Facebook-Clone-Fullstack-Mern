@@ -71,7 +71,7 @@ export default function RegisterForm({ setVisible }) {
   const [genderError, setGenderError] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const url = `${process.env.BACKEND_URL}/register`;
   console.log(url);
