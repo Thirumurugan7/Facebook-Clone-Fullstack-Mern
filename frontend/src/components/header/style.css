@@ -69,7 +69,7 @@ header {
 }
 
 .middle_icon:nth-child(2) {
-  transform: translateX(-2px);
+  transform: translateX(-4px);
 }
 .middle_icon:nth-child(3) {
   transform: translateX(-3px);

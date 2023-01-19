@@ -1,15 +1,21 @@
 import "./style.css";
 import { Link } from "react-router-dom";
 import {
+  ArrowDown,
   Friends,
   Gaming,
   HomeActive,
   Logo,
   Market,
+  Menu,
+  Messenger,
+  Notifications,
   Search,
   Watch,
 } from "../../svg";
+import { useSelector } from "react-redux";
 export default function Header() {
+  const { user } = useSelector((user) => ({ ...user })); // getting data from backend i.e data stored in redux
   const color = "#65676b";
   return (
     <header>
@@ -46,7 +52,25 @@ export default function Header() {
           <Gaming color={color} />
         </Link>
       </div>
-      <div className="header_right"></div>
+      <div className="header_right">
+        <Link to="/profile" className="profile_link hover1">
+          <img src={user?.picture} alt="" />
+          //if user exists then getnthe picture
+          <span>{user?.first_name}</span>
+        </Link>
+        <div className="circle_icon">
+          <Menu />
+        </div>
+        <div className="circle_icon">
+          <Messenger />
+        </div>
+        <div className="circle_icon">
+          <Notifications />
+        </div>
+        <div className="circle_icon">
+          <ArrowDown />
+        </div>
+      </div>
     </header>
   );
 }
