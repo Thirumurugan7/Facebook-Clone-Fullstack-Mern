@@ -29,7 +29,7 @@ export default function Header() {
         </div>
       </div>
       <div className="header_middle">
-        <Link to="/" className="middle_icon">
+        <Link to="/" className="middle_icon active">
           <HomeActive />
         </Link>
         <Link to="/" className="middle_icon hover1">
@@ -37,6 +37,7 @@ export default function Header() {
         </Link>
         <Link to="/" className="middle_icon hover1">
           <Watch color={color} />
+          <div className="middle_notification">9+</div>
         </Link>
         <Link to="/" className="middle_icon hover1">
           <Market color={color} />

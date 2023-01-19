@@ -80,3 +80,22 @@ header {
 .middle_icon:nth-child(5) {
   transform: translateX(-5px);
 }
+.active {
+  border-bottom: 3px solid var(--blue-color);
+  border-radius: 0;
+  height: 56px;
+  transform: translateX(0);
+}
+.active svg {
+  transform: translateY(1px) translateX(-1px);
+}
+.middle_notification {
+  position: absolute;
+  top: 3px;
+  right: 1.9rem;
+  background: #e41e3f;
+  padding: 1px 5px;
+  border-radius: 50px;
+  font-size: 13px;
+  color: #fff;
+}
