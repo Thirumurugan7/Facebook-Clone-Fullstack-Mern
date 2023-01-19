@@ -58,16 +58,17 @@ export default function Header() {
           //if user exists then getnthe picture
           <span>{user?.first_name}</span>
         </Link>
-        <div className="circle_icon">
+        <div className="circle_icon hover1">
           <Menu />
         </div>
-        <div className="circle_icon">
+        <div className="circle_icon hover1">
           <Messenger />
         </div>
-        <div className="circle_icon">
+        <div className="circle_icon hover1">
           <Notifications />
+          <div className="right_notification">5</div>
         </div>
-        <div className="circle_icon">
+        <div className="circle_icon hover1">
           <ArrowDown />
         </div>
       </div>
