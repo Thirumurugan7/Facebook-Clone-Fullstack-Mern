@@ -16,7 +16,12 @@ export default function SearchMenu({ color }) {
           <input type="text" placeholder="Search Facebook" />
         </div>
       </div>
-      <div className="search_history_header"></div>
+      <div className="search_history_header">
+        <span>Recent Searches</span>
+        <a href="">Edit</a>
+      </div>
+      <div className="search_history"></div>
+      <div className="search_results scrollbar"></div>
     </div>
   );
 }
