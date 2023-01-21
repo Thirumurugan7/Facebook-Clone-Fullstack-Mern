@@ -10,6 +10,8 @@ header {
   grid-template-columns: repeat(3, 1fr);
   color: var(--color-primary);
 }
+/* ---------------Header-Left---------------  */
+
 .header_left {
   display: flex;
   align-items: center;
@@ -99,6 +101,10 @@ header {
   font-size: 13px;
   color: #fff;
 }
+
+/* ---------------Header-Left---------------  */
+
+/* ---------------Header-Right---------------  */
 .header_right {
   display: flex;
   position: absolute;
@@ -150,4 +156,60 @@ header {
   padding: 1px 6px;
   font-size: 13px;
   color: #fff;
+}
+
+/* ---------------Header-Right---------------  */
+
+/* ---------------Search-menu---------------  */
+
+.search_area {
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--bg-primary);
+  box-shadow: 0 12px 12px var(--shadow-1), inset 0 0 0 0 var(--shadow-inset);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: all 0.2s;
+  -webkit-font-smoothing: antialiased;
+  z-index: 1;
+  min-height: 400px;
+  max-height: 70vh;
+  padding: 8px 16px 10px 6px;
+}
+
+.search_wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search_area .search {
+  padding: 10px 44px 10px 12px;
+  width: 252px;
+  gap: 4px;
+}
+
+.search_area .search_input {
+  padding-left: 4px;
+}
+
+.search_area .search svg {
+  transform: translateY(1px);
+}
+
+.search_area .search input::placeholder {
+  transform: translateY(-2px);
+}
+
+.search_area .search input::focus::placeholder {
+  transform: translateY(-1px);
+}
+
+.search_history_header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
