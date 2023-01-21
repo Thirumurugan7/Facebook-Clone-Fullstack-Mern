@@ -212,4 +212,18 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px;
+  font-size: 14px;
 }
+
+.search_history_header span {
+  font-weight: 600;
+  font-style: 16px;
+}
+
+.search_history_header a {
+  cursor: pointer;
+  color: var(--blue-color);
+}
+
+/* ---------------Search-Menu---------------  */
