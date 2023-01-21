@@ -14,6 +14,7 @@ import {
   Watch,
 } from "../../svg";
 import { useSelector } from "react-redux";
+import SearchMenu from "./SearchMenu";
 export default function Header() {
   const { user } = useSelector((user) => ({ ...user })); // getting data from backend i.e data stored in redux
   const color = "#65676b";
@@ -34,6 +35,7 @@ export default function Header() {
           />
         </div>
       </div>
+      <SearchMenu />
       <div className="header_middle">
         <Link to="/" className="middle_icon active">
           <HomeActive />
