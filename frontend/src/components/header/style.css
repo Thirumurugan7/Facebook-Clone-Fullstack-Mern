@@ -227,3 +227,33 @@ header {
 }
 
 /* ---------------Search-Menu---------------  */
+
+/* ---------------Search-ALL-Menu---------------  */
+
+.all_menu {
+  position: absolute;
+  right: -19rem;
+  top: 45px;
+  background: var(--light-bg-secondary);
+  border-radius: 10px;
+  height: 90vh;
+  width: 575px;
+  padding: 10px 1rem;
+  box-shadow: -2px 1px 5px 2px var(--shadow-1);
+  user-select: none;
+}
+
+.all_menu_header {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.all_menu_wrap {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 1rem;
+  overflow-y: auto;
+  height: 95%;
+}
