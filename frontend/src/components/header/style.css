@@ -432,7 +432,24 @@ header {
 
 .mmenu_span2 {
   font-size: 12px !important;
-  color: var();
+  color: var(--color-secondary);
 }
 
+.mmenu_item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  padding: 7px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.rArrow {
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  transform: translateY(-50%);
+}
 /* -----User menu----- */

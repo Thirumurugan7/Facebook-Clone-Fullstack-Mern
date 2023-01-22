@@ -20,8 +20,8 @@ export default function ({ user }) {
           <i className="report_filled_icon"></i>
         </div>
         <div className="mmenu_col">
-          <div className="meenu_span1">Give feedback</div>
-          <div className="meenu_span2">Help us improve Facebook</div>
+          <div className="mmenu_span1">Give feedback</div>
+          <div className="mmenu_span2">Help us improve Facebook</div>
         </div>
       </div>
       <div className="mmenu_splitter"></div>
