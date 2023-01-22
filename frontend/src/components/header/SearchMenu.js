@@ -6,7 +6,7 @@ export default function SearchMenu({ color }) {
       <div className="search_wrap">
         <div className="header_logo">
           <div className="circle hover1">
-            <Return />
+            <Return color={color} />
           </div>
         </div>
         <div className="search">
