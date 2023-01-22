@@ -348,4 +348,17 @@ header {
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 10px;
+  margin-bottom: 2px;
 }
+
+.all_right_circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-third);
+}
+
+/* -----search-all-menu----- */
