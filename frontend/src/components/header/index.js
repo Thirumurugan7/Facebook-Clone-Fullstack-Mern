@@ -18,7 +18,7 @@ import SearchMenu from "./SearchMenu";
 import { useRef, useState } from "react";
 import AllMenu from "./AllMenu";
 import useClickOutside from "../../helpers/clickOutside";
-import UserMenu from "./UserMenu";
+import UserMenu from "./userMenu";
 export default function Header() {
   const { user } = useSelector((user) => ({ ...user })); // getting data from backend i.e data stored in redux
   const color = "#65676b";
