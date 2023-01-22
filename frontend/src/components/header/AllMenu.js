@@ -92,7 +92,12 @@ export default function AllMenu() {
         <div className="all_right">
           <div className="all_right_header">Create</div>
           {create.map((item) => (
-            <div className="all_right_item hover1"></div>
+            <div className="all_right_item hover1">
+              <div className="all_right_circle">
+                <i className={item.icon}></i>
+              </div>
+              {item.name}
+            </div>
           ))}
         </div>
       </div>
