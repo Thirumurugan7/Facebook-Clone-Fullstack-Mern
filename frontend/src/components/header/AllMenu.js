@@ -13,7 +13,37 @@ export default function AllMenu() {
           </div>
           <div className="all_menu_group">
             <div className="all_menu_group_header">Social</div>
-            {menu.map((item, i) => (
+            {menu.slice(0, 6).map((item, i) => (
+              <AllMenuItem
+                name={item.name}
+                description={item.description}
+                icon={item.icon}
+              />
+            ))}
+          </div>
+          <div className="all_menu_group">
+            <div className="all_menu_group_header">Entertainment</div>
+            {menu.slice(6, 9).map((item, i) => (
+              <AllMenuItem
+                name={item.name}
+                description={item.description}
+                icon={item.icon}
+              />
+            ))}
+          </div>
+          <div className="all_menu_group">
+            <div className="all_menu_group_header">Shopping</div>
+            {menu.slice(9, 11).map((item, i) => (
+              <AllMenuItem
+                name={item.name}
+                description={item.description}
+                icon={item.icon}
+              />
+            ))}
+          </div>
+          <div className="all_menu_group">
+            <div className="all_menu_group_header">Personal</div>
+            {menu.slice(11, 15).map((item, i) => (
               <AllMenuItem
                 name={item.name}
                 description={item.description}
