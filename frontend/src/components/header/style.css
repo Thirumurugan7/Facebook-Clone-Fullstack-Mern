@@ -234,7 +234,7 @@ header {
   position: absolute;
   right: -19rem;
   top: 45px;
-  background: var(--light-bg-secondary);
+  background: var(--bg-secondary);
   border-radius: 10px;
   height: 90vh;
   width: 575px;
@@ -256,4 +256,20 @@ header {
   gap: 1rem;
   overflow-y: auto;
   height: 95%;
+}
+
+.all_left {
+  background: var(--bg-primary);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.all_menu_search {
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 50px;
 }
