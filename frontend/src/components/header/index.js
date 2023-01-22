@@ -16,6 +16,7 @@ import {
 import { useSelector } from "react-redux";
 import SearchMenu from "./SearchMenu";
 import { useState } from "react";
+import AllMenu from "./AllMenu";
 export default function Header() {
   const { user } = useSelector((user) => ({ ...user })); // getting data from backend i.e data stored in redux
   const color = "#65676b";
@@ -43,7 +44,9 @@ export default function Header() {
         </div>
       </div>
 
-      {showSearchMenu && <SearchMenu color={color} />}
+      {showSearchMenu && (
+        <SearchMenu color={color} setShowSearchMenu={setShowSearchMenu} />
+      )}
       <div className="header_middle">
         <Link to="/" className="middle_icon active">
           <HomeActive />
@@ -70,6 +73,7 @@ export default function Header() {
         </Link>
         <div className="circle_icon hover1">
           <Menu />
+          <AllMenu />
         </div>
         <div className="circle_icon hover1">
           <Messenger />
