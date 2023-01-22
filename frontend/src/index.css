@@ -74,6 +74,9 @@ a {
 .hover2:hover {
   background: var(--bg-third);
 }
+.hover3:hover {
+  background: #d4d6da3a;
+}
 /* hovers */
 
 .card {
@@ -108,3 +111,4 @@ a {
   background: var(--bg-third);
   cursor: pointer;
 }
+/* -------Circles------------------------------------------------ */
