@@ -18,6 +18,7 @@ export default function AllMenu() {
                 name={item.name}
                 description={item.description}
                 icon={item.icon}
+                key={i}
               />
             ))}
           </div>
@@ -28,6 +29,7 @@ export default function AllMenu() {
                 name={item.name}
                 description={item.description}
                 icon={item.icon}
+                key={i}
               />
             ))}
           </div>
@@ -38,6 +40,7 @@ export default function AllMenu() {
                 name={item.name}
                 description={item.description}
                 icon={item.icon}
+                key={i}
               />
             ))}
           </div>
@@ -48,9 +51,49 @@ export default function AllMenu() {
                 name={item.name}
                 description={item.description}
                 icon={item.icon}
+                key={i}
               />
             ))}
           </div>
+          <div className="all_menu_group">
+            <div className="all_menu_group_header">Professional</div>
+            {menu.slice(15, 17).map((item, i) => (
+              <AllMenuItem
+                name={item.name}
+                description={item.description}
+                icon={item.icon}
+                key={i}
+              />
+            ))}
+          </div>
+          <div className="all_menu_group">
+            <div className="all_menu_group_header">Community Resources</div>
+            {menu.slice(17, 21).map((item, i) => (
+              <AllMenuItem
+                name={item.name}
+                description={item.description}
+                icon={item.icon}
+                key={i}
+              />
+            ))}
+          </div>
+          <div className="all_menu_group">
+            <div className="all_menu_group_header">More from Meta</div>
+            {menu.slice(21, 23).map((item, i) => (
+              <AllMenuItem
+                name={item.name}
+                description={item.description}
+                icon={item.icon}
+                key={i}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="all_right">
+          <div className="all_right_header">Create</div>
+          {create.map((item) => (
+            <div className="all_right_item hover1"></div>
+          ))}
         </div>
       </div>
     </div>
