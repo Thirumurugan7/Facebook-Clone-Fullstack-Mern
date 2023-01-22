@@ -15,12 +15,20 @@ import {
 } from "../../svg";
 import { useSelector } from "react-redux";
 import SearchMenu from "./SearchMenu";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import AllMenu from "./AllMenu";
+import useClickOutside from "../../helpers/clickOutside";
+import UserMenu from "./UserMenu";
 export default function Header() {
   const { user } = useSelector((user) => ({ ...user })); // getting data from backend i.e data stored in redux
   const color = "#65676b";
   const [showSearchMenu, setShowSearchMenu] = useState(false);
+  const [showAllMenu, setShowAllMenu] = useState(false);
+  const allmenu = useRef(null);
+
+  useClickOutside(allmenu, () => {
+    setShowAllMenu(false);
+  });
   return (
     <header>
       <div className="header_left">
@@ -71,9 +79,15 @@ export default function Header() {
           //if user exists then getnthe picture
           <span>{user?.first_name}</span>
         </Link>
-        <div className="circle_icon hover1">
+        <div
+          className="circle_icon hover1"
+          ref={allmenu}
+          onClick={() => {
+            setShowAllMenu((prev) => !prev);
+          }}
+        >
           <Menu />
-          <AllMenu />
+          {showAllMenu && <AllMenu />}
         </div>
         <div className="circle_icon hover1">
           <Messenger />
@@ -84,6 +98,7 @@ export default function Header() {
         </div>
         <div className="circle_icon hover1">
           <ArrowDown />
+          <UserMenu user={user} />
         </div>
       </div>
     </header>
